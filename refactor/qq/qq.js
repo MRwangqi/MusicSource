@@ -4,12 +4,11 @@
 
 const axios = require('axios')//require('../vendor/axios.min.js');
 const async = require('async')
-const forge = require('node-forge');
-const DOMParser = require('xmldom').DOMParser;
 
 
 function htmlDecode(value) {
-  const parser = new DOMParser();
+  // const parser = new DOMParser();
+  // return parser.parseFromString(value, 'text/html').body.textContent;
   return value;
 }
 
