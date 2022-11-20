@@ -8,7 +8,7 @@ const music = provider[0]
 function search() {
     const url = `/search?keywords=不能说的秘密&curpage=1&type=0`;
 
-    // todo 搜索，酷我需要本地的 cookie 有 token 才行
+    // todo 搜索，酷我需要本地的 cookie 有 token 才行，目前是写死
     music.search(url).success(function (data) {
         // 
         const searchTrack = data.result[0];
