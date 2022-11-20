@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* global async getParameterByName forge */
 
-const axios = require('axios')//require('../vendor/axios.min.js');
+const axios = require('axios')
 const async = require('async');
 const forge = require('node-forge');
 
