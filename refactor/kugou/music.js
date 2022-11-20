@@ -1,4 +1,4 @@
-const kugou = require('./kugou_refactor');
+const kugou = require('./kugou');
 
 const provider = [kugou]
 
