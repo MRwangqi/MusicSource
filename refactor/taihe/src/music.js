@@ -56,4 +56,4 @@ function search() {
 }
 
 
-search()
+module.exports.search = search

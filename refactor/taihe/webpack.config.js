@@ -7,7 +7,9 @@ module.exports = {
     entry: './src/music.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].min.js'
+        filename: '[name].min.js',
+        libraryTarget: 'umd',
+        library: 'taihe'
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -21,18 +23,8 @@ module.exports = {
                     pure_funcs: ['console.log']
                 }
             },
-            chunkFilter: (chunk) => {
-                // `search` 块不压缩
-                if (chunk.name === 'search') {
-                    return false;
-                }
-                return true;
-            },
             sourceMap: false,
             parallel: true,
         })
-    ],
-    optimization: {
-        minimize: true,
-    }
+    ]
 }
