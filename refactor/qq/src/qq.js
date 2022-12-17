@@ -540,7 +540,6 @@ function lyric(url) {
     `songmid=${track_id}&g_tk=5381&format=json&inCharset=utf8&outCharset=utf-8&nobase64=1`;
   return {
     success: (fn) => {
-      console.log(target_url)
       axios.get(target_url, {
         headers: {
           "referer": "https://y.qq.com/",
