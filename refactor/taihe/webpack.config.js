@@ -9,7 +9,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].min.js',
         libraryTarget: 'umd',
-        library: 'taihe'
+        library: 'music'
     },
     plugins: [
         new CleanWebpackPlugin(),
