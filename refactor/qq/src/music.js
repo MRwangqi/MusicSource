@@ -150,24 +150,24 @@ module.exports.getLyric = getLyric
 //     })
 // })
 
-getPlayList(0, function (data) {
-    // // 拿到推荐列表
-    const playMusic = data[0]
-    console.log("----------- playMusic ---------------")
-    console.log(playMusic)
-    // 根据推荐列表中的某一个，获取其音乐源列表
-    getPlayMusicList(playMusic, function (list) {
-        console.log("----------- track ---------------")
-        const track = list[0]
-        console.log(track)
-        // 根据音乐源列表中的某一个音乐，获取音乐数据
-        getMusic(track, function (data) {
-            console.log("----------- music ---------------")
-            console.log(data)
-            // 获取歌词数据
-            getLyric(track.id,function(lyric){
-                console.log(lyric)
-            })
-        })
-    })
-})
+// getPlayList(0, function (data) {
+//     // // 拿到推荐列表
+//     const playMusic = data[0]
+//     console.log("----------- playMusic ---------------")
+//     console.log(playMusic)
+//     // 根据推荐列表中的某一个，获取其音乐源列表
+//     getPlayMusicList(playMusic, function (list) {
+//         console.log("----------- track ---------------")
+//         const track = list[0]
+//         console.log(track)
+//         // 根据音乐源列表中的某一个音乐，获取音乐数据
+//         getMusic(track, function (data) {
+//             console.log("----------- music ---------------")
+//             console.log(data)
+//             // 获取歌词数据
+//             getLyric(track.id,function(lyric){
+//                 console.log(lyric)
+//             })
+//         })
+//     })
+// })

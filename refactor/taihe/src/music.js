@@ -54,6 +54,9 @@ function search(searchTxt, page, callback) {
 function getMusic(track, callback) {
     // todo 获取音频 mp3
     music.bootstrap_track(track, (response) => {
+        if (response.lyric != null && (response.lyric == "" || response.lyric.lenght == 0)) {
+            response.lyric = track.lyric_urlls
+        }
         callback(response)
     }, function (e) {
         callback(e)
@@ -75,9 +78,9 @@ function getMusic(track, callback) {
  * * source_url: 'https://music.taihe.com/songlist/295866'}]
  * } callback 
  */
-function getPlayList(offset,callback) {
+function getPlayList(offset, callback) {
     // todo 显示推荐歌单
-    const list_url = `/playlist?offset=`+offset;
+    const list_url = `/playlist?offset=` + offset;
     music.show_playlist(list_url).success((data) => {
         callback(data.result)
         // // todo 获取歌单的歌单曲目，请求返回的是 html，报浏览器版本低，怎么解？
@@ -121,8 +124,22 @@ function getPlayMusicList(data, callback) {
 }
 
 
+/**
+ * 获取歌词内容
+ * @param {*} id music id
+ * @param {*} callback 
+ */
+function getLyric(track, callback) {
+    const lyricurl = "lyric?track_id=" + track.id;
+    music.lyric(lyricurl).success((data) => {
+        callback(data.lyric)
+    })
+}
+
+
 module.exports.search = search
 module.exports.getMusic = getMusic
+module.exports.getLyric = getLyric
 module.exports.getPlayList = getPlayList
 module.exports.getPlayMusicList = getPlayMusicList
 
@@ -137,7 +154,7 @@ module.exports.getPlayMusicList = getPlayMusicList
 //     })
 // })
 
-// getPlayList(1,function (data) {
+// getPlayList(1, function (data) {
 //     // // 拿到推荐列表
 //     const playMusic = data[0]
 //     console.log("----------- playMusic ---------------")
@@ -151,6 +168,10 @@ module.exports.getPlayMusicList = getPlayMusicList
 //         getMusic(track, function (data) {
 //             console.log("----------- music ---------------")
 //             console.log(data)
+//             console.log("----------- getLyric ---------------")
+//             getLyric(track, function (data) {
+//                 console.log(data)
+//             })
 //         })
 //     })
 // })
